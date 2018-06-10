@@ -10,6 +10,7 @@
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 #include<allegro5/allegro_primitives.h>
+#include "Metronomo.h"
 
 #define MAX_KEYS 6
 #define MAX_FRET 3
@@ -20,7 +21,13 @@ enum GAMEKEYS{KEY_A,KEY_S,KEY_G,KEY_H,KEY_J,KEY_F1};
 POR QUE ESTO NO FUNCA
 int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond);
 void GameInput(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],bool done);
+AHORA SI FUNCA
 */
+
+int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond);
+void GameInput(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],bool *done);
+
+void BPM_Event(Metronomo* metronomo,void* data,double seconds);
 
 void particle_create(int *xmouse,int *ymouse);
 void particle_draw();

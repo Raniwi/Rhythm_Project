@@ -12,6 +12,11 @@
 #include "resources.h"
 #include "constants.h"
 
+struct MiData{
+    char m1[255];
+    char m2[255];
+};
+
 int main(){
     int i;
     static double fretposy[MAX_FRET];
@@ -61,9 +66,13 @@ int main(){
     }
     fretposy[0]=0;
     for(i=1;i<MAX_FRET;i++){
-        fretposy[i]=fretposy[i-1]-192;
+        fretposy[i]=fretposy[i-1]-187;
     }
-
+    struct MiData dat;
+    strcpy(dat.m1,"uno");
+    strcpy(dat.m2,"dos");
+    Metronomo* met = MetronomoCreate(120,&dat,BPM_Event);
+    MetronomoStart(met);
     while(!done){
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_FPS, &ev);
@@ -80,6 +89,7 @@ int main(){
 
     AssetsDestroy();
     SoundDestroy();
+    MetronomoDestroy(met);
     al_destroy_timer(beatpersecond);
     al_destroy_timer(framepersecond);
     al_destroy_font(font);

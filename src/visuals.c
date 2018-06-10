@@ -102,7 +102,7 @@ void NotesLoad(){
 
 
 void GameChart(){
-    al_draw_line(480,ScreenHeight-160,800,ScreenHeight-160,al_map_rgb(10,10,10),64);
+    al_draw_line((ScreenWidth/2)-160,ScreenHeight-160,(ScreenWidth/2)+160,ScreenHeight-160,al_map_rgb(10,10,10),64);
     al_draw_bitmap(bitmaps[CHART_1],(ScreenWidth/2)-160,ScreenHeight-340,NULL);
 
     al_draw_line((ScreenWidth/2)-163,ScreenHeight,(ScreenWidth/2)-163,0,al_map_rgb(180,180,180),3);
@@ -138,7 +138,7 @@ void GameInputVisual(bool keys[MAX_KEYS]){
 void FretFallRender(double fretposy[MAX_FRET]){
     int i;
     for(i=0;i<MAX_FRET;i++){
-        al_draw_line(480,fretposy[i],800,fretposy[i],al_map_rgb(255,255,255),3);
+        al_draw_line((ScreenWidth/2)-160,fretposy[i],(ScreenWidth/2)+160,fretposy[i],al_map_rgb(255,255,255),3);
     }
     return;
 }

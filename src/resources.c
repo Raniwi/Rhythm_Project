@@ -115,7 +115,7 @@ void FretFallUpdate(double fretposy[MAX_FRET]){
     double fretvely=1;    // =BPM/77
     int i;
     for(i=0;i<MAX_FRET;i++){
-        if(fretposy[i]<ScreenHeight-160){
+        if(fretposy[i]<ScreenHeight-159){
             fretposy[i]=fretposy[i]+fretvely;
         }
         else{
@@ -127,6 +127,11 @@ void FretFallUpdate(double fretposy[MAX_FRET]){
 }
 
 void StatsUpdate(){
-
     return;
 }
+
+void BPM_Event(Metronomo* metronomo,void* data,double seconds){
+    struct MiData* var = (struct MiData*)data;
+    printf("%f\n",seconds);
+}
+
