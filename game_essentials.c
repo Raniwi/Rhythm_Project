@@ -13,15 +13,10 @@
 #include "game_essentials.h"
 #include "constants.h"
 
-enum GAMEKEYS{KEY_A,KEY_S,KEY_G,KEY_H,KEY_J,KEY_F1};
-
 int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond){
     double elapsedtime=al_get_time();
 
-    if(elapsedtime>=OFFSET){
-        Metronome();
-        MusicPlay();
-    }
+    Metronome(keys);
     StatsUpdate();
 
     if(ev.type==ALLEGRO_EVENT_TIMER){

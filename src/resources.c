@@ -80,25 +80,33 @@ void particle_sparkle(){
     return;
 }
 
-void Metronome(){
+void Metronome(bool keys[MAX_KEYS]){
     int tiempo=(int)floorf(al_get_time()*100)%(6000/BPM);
     static int bar=0;                                           //BARRA DEL COMPAS
     static int tack=1;                                          //ACENTUACION
     static int beat=1;                                          //GOLPE
     if(tack>tiempo){
-        printf("%d %d %f\n",beat,bar+1,al_get_time());
-        if(bar==0){
-            SoundMetronome(1);
+        if(keys[KEY_F1]){
+            printf("%d %d %f\n",beat,bar+1,al_get_time());
+            if(bar==0){
+                SoundMetronome(1);
+            }
+            else{
+                SoundMetronome(0);
+            }
         }
-        else{
-            SoundMetronome(0);
+        if(beat==(TIME_SIGNATURE*2)+1){
+            MusicPlay();
         }
+
         bar=(bar+1)%TIME_SIGNATURE;
         beat++;
     }
     tack=tiempo;
     return;
 }
+
+
 
 void FretFallUpdate(double fretposy[MAX_FRET]){
     float fretvely=((ScreenHeight-160)/(6000/BPM));
@@ -109,7 +117,7 @@ void FretFallUpdate(double fretposy[MAX_FRET]){
         }
         else{
             fretposy[i]=0;
-            SoundMetronome(0);
+            //SoundMetronome(0);
         }
     }
     return;

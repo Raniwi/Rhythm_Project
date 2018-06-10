@@ -14,6 +14,8 @@
 #define MAX_KEYS 6
 #define MAX_FRET 3
 
+enum GAMEKEYS{KEY_A,KEY_S,KEY_G,KEY_H,KEY_J,KEY_F1};
+
 /*
 POR QUE ESTO NO FUNCA
 int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond);
@@ -25,7 +27,7 @@ void particle_draw();
 void particle_update();
 void particle_sparkle();
 void StatsUpdate();
-void Metronome();
+void Metronome(bool keys[MAX_KEYS]);
 void FretFallUpdate(double fretposy[MAX_FRET]);
 
 void AssetsLoad();

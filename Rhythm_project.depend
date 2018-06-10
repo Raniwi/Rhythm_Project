@@ -14,7 +14,7 @@
 	"resources.h"
 	"constants.h"
 
-1528609718 c:\users\rosem\desktop\rhythm_project\include\resources.h
+1528614961 c:\users\rosem\desktop\rhythm_project\include\resources.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_font.h>
@@ -25,7 +25,7 @@
 	<allegro5/allegro_acodec.h>
 	<allegro5/allegro_primitives.h>
 
-1528609833 source:c:\users\rosem\desktop\rhythm_project\src\resources.c
+1528614934 source:c:\users\rosem\desktop\rhythm_project\src\resources.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -33,20 +33,20 @@
 	"resources.h"
 	"constants.h"
 
-1528605853 c:\users\rosem\desktop\rhythm_project\include\constants.h
+1528614499 c:\users\rosem\desktop\rhythm_project\include\constants.h
 
-1528605164 source:c:\users\rosem\desktop\rhythm_project\src\visuals.c
+1528613045 source:c:\users\rosem\desktop\rhythm_project\src\visuals.c
 	<stdio.h>
 	"resources.h"
 	"constants.h"
 
-1528523206 source:c:\users\rosem\desktop\rhythm_project\src\sound.c
+1528613549 source:c:\users\rosem\desktop\rhythm_project\src\sound.c
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
 	"resources.h"
 	"constants.h"
 
-1528610504 source:c:\users\rosem\desktop\rhythm_project\game_essentials.c
+1528614971 source:c:\users\rosem\desktop\rhythm_project\game_essentials.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

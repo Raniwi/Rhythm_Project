@@ -38,10 +38,6 @@ imagenes que seran usadas en el preoyecto.
 #define NOTE_IOB 40
 #define NOTE_IOE 49
 
-#define BITMAP_BUFFER 51
-
-enum GAMEKEYS{KEY_A,KEY_S,KEY_G,KEY_H,KEY_J,KEY_F1};
-
 struct notes{
     ALLEGRO_BITMAP *colour;
     double posx;

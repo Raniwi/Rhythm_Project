@@ -4,7 +4,7 @@
 #define CONSTANTS_H_
 #define ScreenWidth 1280
 #define ScreenHeight 720
-#define FPS 120
+#define FPS 240
 #define BPM 130
 #define OFFSET 3
 #endif
