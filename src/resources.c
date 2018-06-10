@@ -109,7 +109,7 @@ void FretFallUpdate(double fretposy[MAX_FRET]){
         }
         else{
             fretposy[i]=0;
-            //SoundMetronome(0);
+            SoundMetronome(0);
         }
     }
     return;
