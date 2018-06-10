@@ -61,7 +61,7 @@ int main(){
     }
     fretposy[0]=0;
     for(i=1;i<MAX_FRET;i++){
-        fretposy[i]=fretposy[i-1]-190;
+        fretposy[i]=fretposy[i-1]-192;
     }
 
     while(!done){
@@ -80,6 +80,8 @@ int main(){
 
     AssetsDestroy();
     SoundDestroy();
+    al_destroy_timer(beatpersecond);
+    al_destroy_timer(framepersecond);
     al_destroy_font(font);
     al_destroy_display(display);
     al_uninstall_keyboard();

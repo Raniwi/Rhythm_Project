@@ -38,6 +38,8 @@ imagenes que seran usadas en el preoyecto.
 #define NOTE_IOB 40
 #define NOTE_IOE 49
 
+#define CHART_1 51
+
 struct notes{
     ALLEGRO_BITMAP *colour;
     double posx;
@@ -77,6 +79,8 @@ void AssetsLoad(){
     bitmaps[BITMAP_NOTE3]=al_load_bitmap("./images/note3.png");
     bitmaps[BITMAP_NOTE4]=al_load_bitmap("./images/note4.png");
     bitmaps[BITMAP_NOTE5]=al_load_bitmap("./images/note5.png");
+
+    bitmaps[CHART_1]=al_load_bitmap("./images/input-background.png");
     return;
 }
 
@@ -98,6 +102,9 @@ void NotesLoad(){
 
 
 void GameChart(){
+    al_draw_line(480,ScreenHeight-160,800,ScreenHeight-160,al_map_rgb(10,10,10),64);
+    al_draw_bitmap(bitmaps[CHART_1],(ScreenWidth/2)-160,ScreenHeight-340,NULL);
+
     al_draw_line((ScreenWidth/2)-163,ScreenHeight,(ScreenWidth/2)-163,0,al_map_rgb(180,180,180),3);
     al_draw_line((ScreenWidth/2)-160,ScreenHeight,(ScreenWidth/2)-160,0,al_map_rgb(220,220,220),3);
     al_draw_line((ScreenWidth/2)+160,ScreenHeight,(ScreenWidth/2)+160,0,al_map_rgb(220,220,220),3);
@@ -109,8 +116,6 @@ void GameChart(){
     al_draw_line((ScreenWidth/2)-64,ScreenHeight-192,(ScreenWidth/2)-64,0,al_map_rgb(128,128,128),2);
     al_draw_line((ScreenWidth/2)-128,ScreenHeight-192,(ScreenWidth/2)-128,0,al_map_rgb(128,128,128),2);
 
-    al_draw_line(480,ScreenHeight-132,800,ScreenHeight-132,al_map_rgb(255,255,255),3); /*ELIMINAR*/
-
     al_draw_bitmap(bitmaps[BITMAP_KEY1],(ScreenWidth/2)-160,ScreenHeight-192,NULL);
     al_draw_bitmap(bitmaps[BITMAP_KEY2],(ScreenWidth/2)-96,ScreenHeight-192,NULL);
     al_draw_bitmap(bitmaps[BITMAP_KEY3],(ScreenWidth/2)-32,ScreenHeight-192,NULL);
@@ -121,20 +126,11 @@ void GameChart(){
 }
 
 void GameInputVisual(bool keys[MAX_KEYS]){
-    if(keys[KEY_A]){
-        al_draw_bitmap(bitmaps[BITMAP_KEY1PRESSED],(ScreenWidth/2)-160,ScreenHeight-192,NULL);
-    }
-    else if(keys[KEY_S]){
-        al_draw_bitmap(bitmaps[BITMAP_KEY2PRESSED],(ScreenWidth/2)-96,ScreenHeight-192,NULL);
-    }
-    else if(keys[KEY_G]){
-        al_draw_bitmap(bitmaps[BITMAP_KEY3PRESSED],(ScreenWidth/2)-32,ScreenHeight-192,NULL);
-    }
-    else if(keys[KEY_H]){
-        al_draw_bitmap(bitmaps[BITMAP_KEY4PRESSED],(ScreenWidth/2)+32,ScreenHeight-192,NULL);
-    }
-    else if(keys[KEY_J]){
-        al_draw_bitmap(bitmaps[BITMAP_KEY5PRESSED],(ScreenWidth/2)+96,ScreenHeight-192,NULL);
+    int i;
+    for(i=0;i<=KEY_J;i++){
+        if(keys[i]){
+            al_draw_bitmap(bitmaps[11+i],(ScreenWidth/2)-(160-i*64),ScreenHeight-192,NULL);
+        }
     }
     return;
 }

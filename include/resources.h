@@ -27,7 +27,7 @@ void particle_draw();
 void particle_update();
 void particle_sparkle();
 void StatsUpdate();
-void Metronome(bool keys[MAX_KEYS]);
+void Metronome(bool keys[MAX_KEYS],double fretposy[MAX_FRET]);
 void FretFallUpdate(double fretposy[MAX_FRET]);
 
 void AssetsLoad();

@@ -13,15 +13,16 @@
 #include "game_essentials.h"
 #include "constants.h"
 
+/*BEATPERSECOND SIN USO*/
+
 int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond){
     double elapsedtime=al_get_time();
 
-    Metronome(keys);
+    Metronome(keys,fretposy);
     StatsUpdate();
 
     if(ev.type==ALLEGRO_EVENT_TIMER){
         if(ev.timer.source==framepersecond){
-            FretFallUpdate(fretposy);
             FretFallRender(fretposy);
             GameChart();
             GameInputVisual(keys);

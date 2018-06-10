@@ -80,7 +80,7 @@ void particle_sparkle(){
     return;
 }
 
-void Metronome(bool keys[MAX_KEYS]){
+void Metronome(bool keys[MAX_KEYS],double fretposy[MAX_FRET]){
     int tiempo=(int)floorf(al_get_time()*100)%(6000/BPM);
     static int bar=0;                                           //BARRA DEL COMPAS
     static int tack=1;                                          //ACENTUACION
@@ -95,12 +95,15 @@ void Metronome(bool keys[MAX_KEYS]){
                 SoundMetronome(0);
             }
         }
-        if(beat==(TIME_SIGNATURE*2)+1){
+        else if(beat==(TIME_SIGNATURE*2)+1){
             MusicPlay();
         }
 
         bar=(bar+1)%TIME_SIGNATURE;
         beat++;
+    }
+    if(beat>=(TIME_SIGNATURE*2)){
+       FretFallUpdate(fretposy);
     }
     tack=tiempo;
     return;
@@ -109,7 +112,7 @@ void Metronome(bool keys[MAX_KEYS]){
 
 
 void FretFallUpdate(double fretposy[MAX_FRET]){
-    float fretvely=((ScreenHeight-160)/(6000/BPM));
+    double fretvely=1;    // =BPM/77
     int i;
     for(i=0;i<MAX_FRET;i++){
         if(fretposy[i]<ScreenHeight-160){
@@ -117,7 +120,7 @@ void FretFallUpdate(double fretposy[MAX_FRET]){
         }
         else{
             fretposy[i]=0;
-            //SoundMetronome(0);
+            SoundMetronome(0);
         }
     }
     return;
