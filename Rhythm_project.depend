@@ -1,0 +1,75 @@
+# depslib dependency file v1.0
+1528608661 source:c:\users\rosem\desktop\rhythm_project\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"resources.h"
+	"constants.h"
+
+1528609718 c:\users\rosem\desktop\rhythm_project\include\resources.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_primitives.h>
+
+1528609833 source:c:\users\rosem\desktop\rhythm_project\src\resources.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	"resources.h"
+	"constants.h"
+
+1528605853 c:\users\rosem\desktop\rhythm_project\include\constants.h
+
+1528605164 source:c:\users\rosem\desktop\rhythm_project\src\visuals.c
+	<stdio.h>
+	"resources.h"
+	"constants.h"
+
+1528523206 source:c:\users\rosem\desktop\rhythm_project\src\sound.c
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"resources.h"
+	"constants.h"
+
+1528610504 source:c:\users\rosem\desktop\rhythm_project\game_essentials.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<allegro5/allegro.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	"game_essentials.h"
+	"constants.h"
+
+1528609713 c:\users\rosem\desktop\rhythm_project\include\game_essentials.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_primitives.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_primitives.h>
+	"resources.h"
+
