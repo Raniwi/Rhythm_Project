@@ -6,7 +6,6 @@ typedef struct _Metronomo Metronomo;
 typedef struct _MetronomoData MetronomoData;
 typedef void (*MetronomoCallback)(Metronomo* metronomo,void* data,double seconds);
 Metronomo* MetronomoCreate(int bmp, void* data,MetronomoCallback callback);
-MetronomoData* MetronomoDataCreate(Metronomo* m, void* data);
 void MetronomoStart(Metronomo *metronomo);
 void MetronomoStop(Metronomo *metronomo);
 void MetronomoDestroy(Metronomo *metronomo);

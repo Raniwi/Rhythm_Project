@@ -35,7 +35,7 @@ void SoundMetronome(int acentua){
 }
 
 void MusicPlay(){
-    //al_play_sample_instance(instances[2]);
+    al_play_sample_instance(instances[2]);
     return;
 }
 

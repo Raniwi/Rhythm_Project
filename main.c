@@ -12,14 +12,8 @@
 #include "resources.h"
 #include "constants.h"
 
-struct MiData{
-    char m1[255];
-    char m2[255];
-};
-
 int main(){
     int i;
-    static double fretposy[MAX_FRET];
     bool done=false;
     bool keys[MAX_KEYS];
     if(!al_init()){
@@ -64,13 +58,7 @@ int main(){
     for(i=0;i<MAX_KEYS;i++){
         keys[i]=false;
     }
-    fretposy[0]=0;
-    for(i=1;i<MAX_FRET;i++){
-        fretposy[i]=fretposy[i-1]-187;
-    }
-    struct MiData dat;
-    strcpy(dat.m1,"uno");
-    strcpy(dat.m2,"dos");
+    struct MiData *dat=CreateData();
     Metronomo* met = MetronomoCreate(120,&dat,BPM_Event);
     MetronomoStart(met);
     while(!done){
@@ -81,7 +69,7 @@ int main(){
         if(ev.type==ALLEGRO_EVENT_DISPLAY_CLOSE){
             done=true;
         }
-        GameInit(ev,keys,font,fretposy,&done,framepersecond,beatpersecond);
+        GameInit(ev,keys,font,GetDataFretPos(dat),&done,framepersecond,beatpersecond);
         if(ev.timer.source==framepersecond){
             al_flip_display();
         }
@@ -90,6 +78,7 @@ int main(){
     AssetsDestroy();
     SoundDestroy();
     MetronomoDestroy(met);
+    free(dat);
     al_destroy_timer(beatpersecond);
     al_destroy_timer(framepersecond);
     al_destroy_font(font);

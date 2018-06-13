@@ -17,6 +17,8 @@
 
 enum GAMEKEYS{KEY_A,KEY_S,KEY_G,KEY_H,KEY_J,KEY_F1};
 
+struct MiData;
+
 /*
 POR QUE ESTO NO FUNCA
 int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond);

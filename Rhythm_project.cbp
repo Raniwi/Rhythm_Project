@@ -38,9 +38,13 @@
 		<Unit filename="game_essentials.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="include/Metronomo.h" />
 		<Unit filename="include/constants.h" />
 		<Unit filename="include/resources.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Metronomo.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/resources.c">
