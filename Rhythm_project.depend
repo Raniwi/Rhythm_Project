@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1528933212 source:c:\users\rosem\desktop\rhythm_project\main.c
+1529036112 source:c:\users\rosem\desktop\rhythm_project\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -14,7 +14,7 @@
 	"resources.h"
 	"constants.h"
 
-1528928946 c:\users\rosem\desktop\rhythm_project\include\resources.h
+1529036150 c:\users\rosem\desktop\rhythm_project\include\resources.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_font.h>
@@ -47,7 +47,7 @@
 	"resources.h"
 	"constants.h"
 
-1529028601 source:c:\users\rosem\desktop\rhythm_project\game_essentials.c
+1529035820 source:c:\users\rosem\desktop\rhythm_project\game_essentials.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -78,6 +78,6 @@
 	<windows.h>
 	<stdbool.h>
 
-1528786558 source:c:\users\rosem\desktop\rhythm_project\src\metronomo.c
+1529029679 source:c:\users\rosem\desktop\rhythm_project\src\metronomo.c
 	"Metronomo.h"
 
