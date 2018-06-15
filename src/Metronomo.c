@@ -45,7 +45,7 @@ DWORD WINAPI solo_thread(void* arg)
     md->running = true;
     while (md->running == true){
         //sleep(1/metronomo->bmp);
-        md->callback(md,md->data,clock()/1000.0);
+        md->callback(md,md->data,GetTickCount()/1000.0);
 
     }
     /* Use 'data'. */

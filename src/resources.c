@@ -57,10 +57,10 @@ double *GetDataFretPos(struct MiData* temp){
 
 void BPM_Event(Metronomo* metronomo,void* data,double seconds){
     struct MiData* var = (struct MiData*)data;
-    int tiempo=(int)floorf(seconds*100)%(6000/(BPM*4));
+    int tiempo=(int)floorf(seconds*100)%(6000/(BPM*1));
     static int negra=0,beat=1,tack=1,bar=0;
     if(tack>tiempo){
-        if(negra%4==0){
+        if(negra%1==0){
             printf("%d %d %d %f\n",negra,bar+1,beat,seconds);
             if(bar==0)
                 SoundMetronome(1);
@@ -72,8 +72,7 @@ void BPM_Event(Metronomo* metronomo,void* data,double seconds){
 
             beat++;
             bar=(bar+1)%TIME_SIGNATURE;
-            if(beat>=TIME_SIGNATURE)
-                FretFallUpdate(var->fretposy);
+            if(beat>=TIME_SIGNATURE){}
         }
         negra++;
     }
@@ -81,17 +80,21 @@ void BPM_Event(Metronomo* metronomo,void* data,double seconds){
 }
 
 void FretFallUpdate(double fretposy[MAX_FRET]){
-    double fretvely=1;    // =BPM/77
+    double fretvely=(BPM/25.75)/2;           //2: La cantidad de beats que quiero que tarde
     int i;
-    printf("\n");
+    printf("%f\n",fretvely);
     for(i=0;i<MAX_FRET;i++){
-        printf("%f ",fretposy[i]);
-        if(fretposy[i]<ScreenHeight-159){
+        if(fretposy[i]<ScreenHeight-160){
             fretposy[i]=fretposy[i]+fretvely;
         }
-        printf("\n");
+        if(fretposy[i]>ScreenHeight-160){
+            SoundMetronome(0);
+            fretposy[i]=0;
+        }
+        if(fretposy[i]==((ScreenHeight-160)/2)){
+            SoundMetronome(0);
+        }
     }
-    printf("\n");
     return;
 }
 

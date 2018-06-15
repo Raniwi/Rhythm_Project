@@ -14,6 +14,7 @@
 
 int main(){
     int i;
+    static double fretposy[MAX_FRET];
     bool done=false;
     bool keys[MAX_KEYS];
     if(!al_init()){
@@ -58,6 +59,10 @@ int main(){
     for(i=0;i<MAX_KEYS;i++){
         keys[i]=false;
     }
+    for(i=0;i<MAX_FRET;i++){
+        fretposy[i]=0;
+    }
+
     struct MiData *dat=CreateData();
     Metronomo* met = MetronomoCreate(120,&dat,BPM_Event);
     MetronomoStart(met);
@@ -66,13 +71,11 @@ int main(){
         al_wait_for_event(event_FPS, &ev);
         al_clear_to_color(al_map_rgb(0,0,0));
 
-        if(ev.type==ALLEGRO_EVENT_DISPLAY_CLOSE){
-            done=true;
-        }
         GameInit(ev,keys,font,GetDataFretPos(dat),&done,framepersecond,beatpersecond);
-        if(ev.timer.source==framepersecond){
+        if(ev.type==ALLEGRO_EVENT_DISPLAY_CLOSE)
+            done=true;
+        else if(ev.timer.source==framepersecond)
             al_flip_display();
-        }
     }
 
     AssetsDestroy();
