@@ -59,19 +59,17 @@ int main(){
     for(i=0;i<MAX_KEYS;i++){
         keys[i]=false;
     }
-    for(i=0;i<MAX_FRET;i++){
-        fretposy[i]=0;
-    }
-
-    struct MiData *dat=CreateData();
-    Metronomo* met = MetronomoCreate(120,&dat,BPM_Event);
-    MetronomoStart(met);
+    fretposy[0]=0;
+    fretposy[1]=-280;
+    //for(i=0;i<MAX_FRET;i++){
+    //    fretposy[i]=0;
+    //}
     while(!done){
         ALLEGRO_EVENT ev;
         al_wait_for_event(event_FPS, &ev);
         al_clear_to_color(al_map_rgb(0,0,0));
 
-        GameInit(ev,keys,font,GetDataFretPos(dat),&done,framepersecond,beatpersecond);
+        GameInit(ev,keys,font,fretposy,&done,framepersecond,beatpersecond);
         if(ev.type==ALLEGRO_EVENT_DISPLAY_CLOSE)
             done=true;
         else if(ev.timer.source==framepersecond)
@@ -80,8 +78,6 @@ int main(){
 
     AssetsDestroy();
     SoundDestroy();
-    MetronomoDestroy(met);
-    free(dat);
     al_destroy_timer(beatpersecond);
     al_destroy_timer(framepersecond);
     al_destroy_font(font);

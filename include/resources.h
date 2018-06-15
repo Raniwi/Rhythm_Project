@@ -13,11 +13,9 @@
 #include "Metronomo.h"
 
 #define MAX_KEYS 6
-#define MAX_FRET 3
+#define MAX_FRET 2
 
 enum GAMEKEYS{KEY_A,KEY_S,KEY_G,KEY_H,KEY_J,KEY_F1};
-
-struct MiData;
 
 /*
 POR QUE ESTO NO FUNCA
@@ -29,15 +27,13 @@ AHORA SI FUNCA
 int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond);
 void GameInput(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],bool *done);
 
-void BPM_Event(Metronomo* metronomo,void* data,double seconds);
-
 void particle_create(int *xmouse,int *ymouse);
 void particle_draw();
 void particle_update();
 void particle_sparkle();
 void StatsUpdate();
 void Metronome(bool keys[MAX_KEYS],double fretposy[MAX_FRET]);
-void FretFallUpdate(double fretposy[MAX_FRET]);
+void FretFallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET]);
 
 void AssetsLoad();
 void GameChart();

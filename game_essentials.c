@@ -18,8 +18,8 @@
 int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond){
 
     //Metronome(keys,fretposy);
+    FretFallUpdate(keys,fretposy);
     StatsUpdate();
-    FretFallUpdate(fretposy);
 
     if(ev.type==ALLEGRO_EVENT_TIMER){
         if(ev.timer.source==framepersecond){

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1529036112 source:c:\users\rosem\desktop\rhythm_project\main.c
+1529037904 source:c:\users\rosem\desktop\rhythm_project\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -14,7 +14,7 @@
 	"resources.h"
 	"constants.h"
 
-1529036150 c:\users\rosem\desktop\rhythm_project\include\resources.h
+1529040604 c:\users\rosem\desktop\rhythm_project\include\resources.h
 	<allegro5/allegro.h>
 	<allegro5/allegro_native_dialog.h>
 	<allegro5/allegro_font.h>
@@ -26,7 +26,7 @@
 	<allegro5/allegro_primitives.h>
 	"Metronomo.h"
 
-1529029530 source:c:\users\rosem\desktop\rhythm_project\src\resources.c
+1529041235 source:c:\users\rosem\desktop\rhythm_project\src\resources.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -34,20 +34,20 @@
 	"resources.h"
 	"constants.h"
 
-1528944930 c:\users\rosem\desktop\rhythm_project\include\constants.h
+1529039273 c:\users\rosem\desktop\rhythm_project\include\constants.h
 
 1528785368 source:c:\users\rosem\desktop\rhythm_project\src\visuals.c
 	<stdio.h>
 	"resources.h"
 	"constants.h"
 
-1529029494 source:c:\users\rosem\desktop\rhythm_project\src\sound.c
+1529039250 source:c:\users\rosem\desktop\rhythm_project\src\sound.c
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
 	"resources.h"
 	"constants.h"
 
-1529035820 source:c:\users\rosem\desktop\rhythm_project\game_essentials.c
+1529040744 source:c:\users\rosem\desktop\rhythm_project\game_essentials.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

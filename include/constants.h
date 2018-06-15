@@ -5,7 +5,7 @@
 #define ScreenWidth 1280
 #define ScreenHeight 720
 #define FPS 240
-#define BPM 130
+#define BPM 160
 #define TIME_SIGNATURE 3
 #define OFFSET 3
 #endif
