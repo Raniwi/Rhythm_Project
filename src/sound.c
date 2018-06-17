@@ -5,6 +5,8 @@
 
 #define MAX_SAMPLE 3
 
+//comentario
+
 static ALLEGRO_SAMPLE **samples;
 static ALLEGRO_SAMPLE_INSTANCE *instances[MAX_SAMPLE];
 
@@ -15,7 +17,7 @@ void SoundLoad(){
 
     samples[0]=al_load_sample("./sound/metronome_tick.wav");
     samples[1]=al_load_sample("./sound/metronome_tack.wav");
-    samples[2]=al_load_sample("./sound/GEJ2.wav");
+    samples[2]=al_load_sample("./sound/GEJ.wav");
 
     for(i=0;i<MAX_SAMPLE;i++){
         instances[i]=al_create_sample_instance(samples[i]);

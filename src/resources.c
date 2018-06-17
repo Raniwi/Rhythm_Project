@@ -39,7 +39,7 @@ void Metronome(bool keys[MAX_KEYS],double fretposy[MAX_FRET]){
 }
 
 void FallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET],double fretboardposy[MAX_FRET]){
-    double vely=(BPM/25.70)/2;           //2: La cantidad de beats que quiero que tarde
+    double vely=(BPM/25.651788)/2;           //2: La cantidad de beats que quiero que tarde
     FretFallUpdate(keys,fretposy,vely);
     FretBoardFallUpdate(fretboardposy,vely);
     NoteFallUpdate(vely);

@@ -26,7 +26,7 @@
 	<allegro5/allegro_primitives.h>
 	"Metronomo.h"
 
-1529207632 source:c:\users\rosem\desktop\rhythm_project\src\resources.c
+1529213240 source:c:\users\rosem\desktop\rhythm_project\src\resources.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -34,14 +34,14 @@
 	"resources.h"
 	"constants.h"
 
-1529041967 c:\users\rosem\desktop\rhythm_project\include\constants.h
+1529210348 c:\users\rosem\desktop\rhythm_project\include\constants.h
 
-1529206634 source:c:\users\rosem\desktop\rhythm_project\src\visuals.c
+1529207660 source:c:\users\rosem\desktop\rhythm_project\src\visuals.c
 	<stdio.h>
 	"resources.h"
 	"constants.h"
 
-1529041967 source:c:\users\rosem\desktop\rhythm_project\src\sound.c
+1529211269 source:c:\users\rosem\desktop\rhythm_project\src\sound.c
 	<allegro5/allegro_audio.h>
 	<allegro5/allegro_acodec.h>
 	"resources.h"
