@@ -38,9 +38,15 @@ void Metronome(bool keys[MAX_KEYS],double fretposy[MAX_FRET]){
     return;
 }
 
-void FretFallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET]){
-    double fretvely=(BPM/25.70)/2;           //2: La cantidad de beats que quiero que tarde
-    //double fretvely=1;
+void FallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET],double fretboardposy[MAX_FRET]){
+    double vely=(BPM/25.70)/2;           //2: La cantidad de beats que quiero que tarde
+    FretFallUpdate(keys,fretposy,vely);
+    FretBoardFallUpdate(fretboardposy,vely);
+    NoteFallUpdate(vely);
+
+}
+
+void FretFallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET],double fretvely){
     int i;
     static int bar=0;
     static int beat=1;
@@ -58,11 +64,27 @@ void FretFallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET]){
                 else
                     SoundMetronome(0);
             }
-            else if(beat==(TIME_SIGNATURE*2)+1){
+            if(beat==(TIME_SIGNATURE*2)+1){
                 MusicPlay();
             }
         }
     }
+    return;
+}
+
+void FretBoardFallUpdate(double fretboardposy[MAX_FRET],double fretboardvely){
+    int i;
+    for(i=0;i<MAX_FRET;i++){
+        fretboardposy[i]=fretboardposy[i]+fretboardvely;
+        if(fretboardposy[i]>=ScreenHeight-160){
+            fretboardposy[i]=-560;
+        }
+    }
+    return;
+}
+
+void NoteFallUpdate(double notevely){
+
     return;
 }
 

@@ -15,15 +15,16 @@
 
 /*BEATPERSECOND SIN USO*/
 
-int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond){
+int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],double fretboardposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond){
 
     //Metronome(keys,fretposy);
-    FretFallUpdate(keys,fretposy);
+    FallUpdate(keys,fretposy,fretboardposy);
     StatsUpdate();
 
     if(ev.type==ALLEGRO_EVENT_TIMER){
         if(ev.timer.source==framepersecond){
-            FretFallRender(fretposy);
+            FretBoardFallVisual(fretboardposy);
+            FretFallVisual(fretposy);
             GameChart();
             GameInputVisual(keys);
             StatsVisual(keys,font);

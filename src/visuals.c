@@ -9,11 +9,15 @@ imagenes que seran usadas en el preoyecto.
 #define MAX_BITMAP 70
 #define MAX_NOTES 50
 
+#define BITMAP_FRETBOARD 0
+
 #define BITMAP_KEY1 1
 #define BITMAP_KEY2 2
 #define BITMAP_KEY3 3
 #define BITMAP_KEY4 4
 #define BITMAP_KEY5 5
+
+#define BITMAP_INPUTBACKGROUND 10
 
 #define BITMAP_KEY1PRESSED 11
 #define BITMAP_KEY2PRESSED 12
@@ -38,8 +42,6 @@ imagenes que seran usadas en el preoyecto.
 #define NOTE_IOB 40
 #define NOTE_IOE 49
 
-#define CHART_1 51
-
 struct notes{
     ALLEGRO_BITMAP *colour;
     double posx;
@@ -62,6 +64,7 @@ void AssetsLoad(){
     bitmaps=(ALLEGRO_BITMAP **)malloc(sizeof(ALLEGRO_BITMAP *)*MAX_BITMAP);
     for(i=0;i<MAX_BITMAP;i++)
         bitmaps[i]=NULL;
+    bitmaps[BITMAP_FRETBOARD]=al_load_bitmap("./images/fretboard.png");
     bitmaps[BITMAP_KEY1]=al_load_bitmap("./images/key1.png");
     bitmaps[BITMAP_KEY2]=al_load_bitmap("./images/key2.png");
     bitmaps[BITMAP_KEY3]=al_load_bitmap("./images/key3.png");
@@ -80,7 +83,7 @@ void AssetsLoad(){
     bitmaps[BITMAP_NOTE4]=al_load_bitmap("./images/note4.png");
     bitmaps[BITMAP_NOTE5]=al_load_bitmap("./images/note5.png");
 
-    bitmaps[CHART_1]=al_load_bitmap("./images/input-background.png");
+    bitmaps[BITMAP_INPUTBACKGROUND]=al_load_bitmap("./images/input-background.png");
     return;
 }
 
@@ -88,22 +91,22 @@ void NotesLoad(){
     int i;
     note=(struct notes *)malloc(sizeof(struct notes)*MAX_NOTES);
     for(i=NOTE_IGB;i<NOTE_IGE;i++)
-        note[i]=NotesCreate(bitmaps[BITMAP_NOTE1],(ScreenWidth/2)-160,0);
+        note[i]=NotesCreate(bitmaps[BITMAP_NOTE1],(ScreenWidth/2)-160,-32*i);
     for(i=NOTE_IRB;i<NOTE_IRE;i++)
-        note[i]=NotesCreate(bitmaps[BITMAP_NOTE2],(ScreenWidth/2)-96,0);
+        note[i]=NotesCreate(bitmaps[BITMAP_NOTE2],(ScreenWidth/2)-96,-32*i);
     for(i=NOTE_IYB;i<NOTE_IYE;i++)
-        note[i]=NotesCreate(bitmaps[BITMAP_NOTE3],(ScreenWidth/2)-32,0);
+        note[i]=NotesCreate(bitmaps[BITMAP_NOTE3],(ScreenWidth/2)-32,-32*i);
     for(i=NOTE_IBB;i<NOTE_IBE;i++)
-        note[i]=NotesCreate(bitmaps[BITMAP_NOTE4],(ScreenWidth/2)+32,0);
+        note[i]=NotesCreate(bitmaps[BITMAP_NOTE4],(ScreenWidth/2)+32,-32*i);
     for(i=NOTE_IOB;i<NOTE_IOE;i++)
-        note[i]=NotesCreate(bitmaps[BITMAP_NOTE5],(ScreenWidth/2)+96,0);
+        note[i]=NotesCreate(bitmaps[BITMAP_NOTE5],(ScreenWidth/2)+96,-32*i);
     return;
 }
 
-
 void GameChart(){
+    al_draw_filled_rectangle((ScreenWidth/2)-160,ScreenHeight,(ScreenWidth/2)+160,ScreenHeight-160,al_map_rgb(0,0,0));
     al_draw_line((ScreenWidth/2)-160,ScreenHeight-160,(ScreenWidth/2)+160,ScreenHeight-160,al_map_rgb(10,10,10),64);
-    al_draw_bitmap(bitmaps[CHART_1],(ScreenWidth/2)-160,ScreenHeight-340,NULL);
+    al_draw_bitmap(bitmaps[BITMAP_INPUTBACKGROUND],(ScreenWidth/2)-160,ScreenHeight-340,NULL);
 
     al_draw_line((ScreenWidth/2)-163,ScreenHeight,(ScreenWidth/2)-163,0,al_map_rgb(180,180,180),3);
     al_draw_line((ScreenWidth/2)-160,ScreenHeight,(ScreenWidth/2)-160,0,al_map_rgb(220,220,220),3);
@@ -135,7 +138,18 @@ void GameInputVisual(bool keys[MAX_KEYS]){
     return;
 }
 
-void FretFallRender(double fretposy[MAX_FRET]){
+void FretBoardFallVisual(double fretboardposy[MAX_FRET]){
+    int i;
+    for(i=0;i<MAX_FRET;i++){
+        if(i)
+           al_draw_bitmap(bitmaps[BITMAP_FRETBOARD],(ScreenWidth/2)-128,fretboardposy[i],ALLEGRO_FLIP_VERTICAL);
+        else
+           al_draw_bitmap(bitmaps[BITMAP_FRETBOARD],(ScreenWidth/2)-128,fretboardposy[i],NULL);
+    }
+    return;
+}
+
+void FretFallVisual(double fretposy[MAX_FRET]){
     int i;
     for(i=0;i<MAX_FRET;i++){
         al_draw_line((ScreenWidth/2)-160,fretposy[i],(ScreenWidth/2)+160,fretposy[i],al_map_rgb(255,255,255),3);

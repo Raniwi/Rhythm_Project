@@ -24,23 +24,23 @@ void GameInput(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],bool done);
 AHORA SI FUNCA
 */
 
-int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond);
+int GameInit(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],ALLEGRO_FONT *font,double fretposy[MAX_FRET],double fretboardposy[MAX_FRET],bool *done,ALLEGRO_TIMER *framepersecond,ALLEGRO_TIMER *beatpersecond);
 void GameInput(ALLEGRO_EVENT ev,bool keys[MAX_KEYS],bool *done);
 
-void particle_create(int *xmouse,int *ymouse);
-void particle_draw();
-void particle_update();
-void particle_sparkle();
-void StatsUpdate();
 void Metronome(bool keys[MAX_KEYS],double fretposy[MAX_FRET]);
-void FretFallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET]);
+void FallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET],double fretboardposy[MAX_FRET]);
+void FretFallUpdate(bool keys[MAX_KEYS],double fretposy[MAX_FRET],double fretvely);
+void FretBoardFallUpdate(double fretboardposy[MAX_FRET],double fretboardvely);
+void NoteFallUpdate(double notevely);
+void StatsUpdate();
 
 void AssetsLoad();
 void GameChart();
 void GameStats(ALLEGRO_FONT *font);
 void GameInputVisual(bool keys[MAX_KEYS]);
 void StatsVisual(bool keys[MAX_KEYS],ALLEGRO_FONT *font);
-void FretFallRender(double fretposy[MAX_FRET]);
+void FretBoardFallVisual(double fretboardposy[MAX_FRET]);
+void FretFallVisual(double fretposy[MAX_FRET]);
 void AssetsDestroy();
 
 void SoundLoad();
